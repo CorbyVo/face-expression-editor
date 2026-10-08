@@ -14,8 +14,11 @@ with MANIFEST_PATH.open(encoding="utf-8-sig", newline="") as file:
     for row in reader:
         image_path = IMAGES_DIR / row["filename"]
 
-        with Image.open(image_path) as image:
-            image.load()
-            width, height = image.size
-
-        print(row["photo_id"], row["filename"], width, height)
+        try:
+            with Image.open(image_path) as image:
+                image.load()
+                width, height = image.size
+        except OSError as error:
+            print(row['photo_id'], 'FAILED:', error)
+        else:
+            print(row["photo_id"], row["filename"], width, height)
