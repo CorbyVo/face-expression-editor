@@ -1,0 +1,14 @@
+# Input photos and generated outputs
+data/baseline_inputs/
+outputs/
+
+# Python environment and temporary files
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Credentials and editor settings
+.env
+.idea/
+.vscode/
